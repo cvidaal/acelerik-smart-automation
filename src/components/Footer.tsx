@@ -7,13 +7,13 @@ const Footer = () => {
     {
       icon: MessageCircle,
       label: "WhatsApp",
-      href: "https://wa.me/34XXXXXXXXX",
+      href: "https://wa.me/34608429382",
       color: "hover:text-[#25D366]",
     },
     {
       icon: Instagram,
       label: "Instagram",
-      href: "https://instagram.com/acelerik",
+      href: "https://instagram.com/acelerik.agency",
       color: "hover:text-[#E4405F]",
     },
     {
@@ -32,7 +32,9 @@ const Footer = () => {
             {/* Logo */}
             <div className="flex items-center gap-2">
               <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-display font-bold text-xl">A</span>
+                <span className="text-primary-foreground font-display font-bold text-xl">
+                  A
+                </span>
               </div>
               <span className="font-display font-bold text-xl text-foreground">
                 ACELER<span className="text-primary">IK</span>
@@ -66,8 +68,12 @@ const Footer = () => {
         <div className="py-6 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <p>© {currentYear} ACELERIK. Todos los derechos reservados.</p>
           <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-primary transition-colors">Política de privacidad</a>
-            <a href="#" className="hover:text-primary transition-colors">Términos de uso</a>
+            <a href="#" className="hover:text-primary transition-colors">
+              Política de privacidad
+            </a>
+            <a href="#" className="hover:text-primary transition-colors">
+              Términos de uso
+            </a>
           </div>
         </div>
       </div>

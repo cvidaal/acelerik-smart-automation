@@ -35,10 +35,31 @@ const ContactSection = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
+    try {
+      const response = await fetch("https://formspree.io/f/movgkkpk", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Error al enviar el formulario");
+      }
+
+      toast.success("¡Mensaje enviado! Te contactaremos pronto.");
+      setFormData({ name: "", email: "", message: "" });
+      setIsSubmitting(false);
+    } catch (error) {
+      console.log(error);
+    }
+
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 1000));
-    
+
     toast.success("¡Mensaje enviado! Te contactaremos pronto.");
     setFormData({ name: "", email: "", message: "" });
     setIsSubmitting(false);
@@ -62,7 +83,7 @@ const ContactSection = () => {
               ¿Listo para automatizar tu negocio?
             </h2>
             <p className="text-muted-foreground text-lg mb-8">
-              Cuéntanos sobre tu negocio y te proponemos las mejores soluciones de automatización. 
+              Cuéntanos sobre tu negocio y te proponemos las mejores soluciones de automatización.
               La primera consulta es <span className="text-primary font-semibold">100% gratis</span>.
             </p>
 
@@ -80,7 +101,7 @@ const ContactSection = () => {
               <Button
                 variant="whatsapp"
                 className="w-full"
-                onClick={() => window.open("https://wa.me/34XXXXXXXXX", "_blank")}
+                onClick={() => window.open("https://wa.me/34608429382?text=Hola,%20quiero%20digitalizar%20mi%20negocio.%20%C2%BFCu%C3%A1ndo%20podemos%20hablar?", "_blank")}
               >
                 <MessageCircle className="w-5 h-5" />
                 Hablar con ACELERIK
@@ -91,7 +112,7 @@ const ContactSection = () => {
             {/* Email info */}
             <div className="flex items-center gap-3 text-muted-foreground">
               <Mail className="w-5 h-5 text-primary" />
-              <span>info@acelerik.com</span>
+              <span>acelerikagency@gmail.com</span>
             </div>
           </div>
 
@@ -110,6 +131,7 @@ const ContactSection = () => {
                   <Input
                     id="name"
                     placeholder="Tu nombre"
+                    name="name"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     required
@@ -124,6 +146,7 @@ const ContactSection = () => {
                   <Input
                     id="email"
                     type="email"
+                    name="email"
                     placeholder="tu@email.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -139,6 +162,7 @@ const ContactSection = () => {
                   <Textarea
                     id="message"
                     placeholder="Cuéntanos sobre tu negocio y qué te gustaría automatizar..."
+                    name="message"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     required

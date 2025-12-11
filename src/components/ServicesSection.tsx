@@ -5,9 +5,10 @@ import { Check, Zap, Crown, Share2, Rocket } from "lucide-react";
 const services = [
   {
     icon: Zap,
-    name: "AAA Básico",
-    description: "Automatización simple para empezar",
-    price: "Desde 297€",
+    name: "Bot WhatsApp 24/7",
+    description: "Bot de WhatsApp que atiende clientes 24/7.",
+    price: "Desde 350€",
+    description_price: "Incluye 1 mes de soporte, luego 50€/mes opcional",
     features: [
       "Bot WhatsApp básico",
       "Integración con Google Sheets",
@@ -18,9 +19,9 @@ const services = [
   },
   {
     icon: Crown,
-    name: "AAA Premium",
+    name: "Sistema de Reservas Pro",
     description: "Sistemas completos para crecer",
-    price: "Desde 597€",
+    price: "Desde 599€",
     features: [
       "Bot WhatsApp avanzado",
       "Sistema de reservas completo",
@@ -32,28 +33,28 @@ const services = [
   },
   {
     icon: Share2,
-    name: "SMMA Básico",
-    description: "Contenido automático",
-    price: "Desde 197€",
+    name: "Gestión de Redes Sociales",
+    description: "Tu marca activa, bonita y profesional.",
+    price: "Desde 300€",
     features: [
-      "Publicaciones programadas",
-      "Contenido automático",
-      "2 redes sociales",
-      "Informes mensuales",
+      "8 Posts (2 por semana)",
+      "Copywriting persuasivo",
+      "Programación mensual",
+      "Informe de resultados simple",
     ],
     popular: false,
   },
   {
     icon: Rocket,
-    name: "Celeric Hybrid",
-    description: "Todo en uno para dominar",
-    price: "Personalizado",
+    name: "Partner Digital 360",
+    description: "Tu departamento de marketing y tecnología externo",
+    price: "A medida",
     features: [
-      "Automatización completa",
-      "Contenido + redes sociales",
-      "Crecimiento digital",
-      "Estrategia personalizada",
-      "Soporte 24/7",
+      "Mantenimiento de Bots y Reservas (AAA)",
+      "Todo lo incluido en Gestión de Redes.",
+      "Estrategia mensual de crecimiento.",
+      "Soporte Prioritario VIP (WhatsApp directo contigo)",
+      "Reunión mensual de estrategia.",
     ],
     popular: false,
   },
@@ -98,7 +99,7 @@ const ServicesSection = () => {
             Planes que se adaptan a ti
           </h2>
           <p className="text-muted-foreground text-lg">
-            Elige el nivel de automatización que necesita tu negocio. 
+            Elige el nivel de automatización que necesita tu negocio.
             Todos incluyen configuración y formación.
           </p>
         </div>
@@ -108,11 +109,10 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <div
               key={service.name}
-              className={`relative bg-card rounded-2xl p-6 border transition-all duration-500 card-hover ${
-                service.popular 
-                  ? "border-primary shadow-glow" 
-                  : "border-border hover:border-primary/30"
-              } ${isVisible ? "animate-fade-up" : "opacity-0"}`}
+              className={`relative bg-card rounded-2xl p-6 border transition-all duration-500 card-hover ${service.popular
+                ? "border-primary shadow-glow"
+                : "border-border hover:border-primary/30"
+                } ${isVisible ? "animate-fade-up" : "opacity-0"}`}
               style={{ animationDelay: `${(index + 1) * 100}ms` }}
             >
               {/* Popular badge */}
@@ -125,9 +125,8 @@ const ServicesSection = () => {
               )}
 
               {/* Icon */}
-              <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${
-                service.popular ? "bg-primary" : "bg-primary/10"
-              }`}>
+              <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${service.popular ? "bg-primary" : "bg-primary/10"
+                }`}>
                 <service.icon className={`w-6 h-6 ${service.popular ? "text-primary-foreground" : "text-primary"}`} />
               </div>
 
@@ -144,6 +143,7 @@ const ServicesSection = () => {
                 <span className="text-2xl font-display font-bold text-primary">
                   {service.price}
                 </span>
+                <p className="text-muted-foreground text-sm mt-2">{service.description_price}</p>
               </div>
 
               {/* Features */}
@@ -160,7 +160,7 @@ const ServicesSection = () => {
               <Button
                 variant={service.popular ? "default" : "outline"}
                 className="w-full"
-                onClick={() => window.open("https://wa.me/34XXXXXXXXX", "_blank")}
+                onClick={() => window.open("https://wa.me/34608429382", "_blank")}
               >
                 Solicitar info
               </Button>

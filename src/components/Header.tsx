@@ -6,6 +6,9 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const messageWha =
+    "Hola Acelerik,%20he%20visto%20vuestra%20web%20y%20quiero%20automatizar%20mi%20negocio.%20%C2%BFPodemos%20hablar?";
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -43,7 +46,9 @@ const Header = () => {
           {/* Logo */}
           <a href="#" className="flex items-center gap-2">
             <div className="w-8 h-8 md:w-10 md:h-10 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-display font-bold text-lg md:text-xl">A</span>
+              <span className="text-primary-foreground font-display font-bold text-lg md:text-xl">
+                A
+              </span>
             </div>
             <span className="font-display font-bold text-lg md:text-xl text-foreground">
               ACELER<span className="text-primary">IK</span>
@@ -68,7 +73,12 @@ const Header = () => {
             <Button
               variant="whatsapp"
               size="sm"
-              onClick={() => window.open("https://wa.me/34XXXXXXXXX", "_blank")}
+              onClick={() =>
+                window.open(
+                  `https://wa.me/34608429382?text=${messageWha}`,
+                  "_blank"
+                )
+              }
             >
               <MessageCircle className="w-4 h-4" />
               WhatsApp
@@ -80,7 +90,11 @@ const Header = () => {
             className="md:hidden text-foreground p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </button>
         </nav>
 
@@ -101,7 +115,9 @@ const Header = () => {
                 <Button
                   variant="whatsapp"
                   className="w-full"
-                  onClick={() => window.open("https://wa.me/34XXXXXXXXX", "_blank")}
+                  onClick={() =>
+                    window.open("https://wa.me/34608429382", "_blank")
+                  }
                 >
                   <MessageCircle className="w-4 h-4" />
                   Hablar por WhatsApp

@@ -17,7 +17,7 @@ const features = [
   {
     icon: Calendar,
     title: "Sistemas de Reservas",
-    description: "Integración completa con Google Calendar, Sheets y n8n. Tus clientes reservan, tú descansas.",
+    description: "Integración completa con Google Calendar, Sheets. Tus clientes reservan, tú descansas.",
     color: "from-blue-500/20 to-blue-500/5",
   },
 ];
@@ -60,7 +60,7 @@ const WhatWeDoSection = () => {
             Automatización inteligente para tu negocio
           </h2>
           <p className="text-muted-foreground text-lg">
-            Transformamos tareas repetitivas en sistemas que funcionan solos, 
+            Transformamos tareas repetitivas en sistemas que funcionan solos,
             permitiéndote enfocarte en lo que realmente importa.
           </p>
         </div>
@@ -70,14 +70,13 @@ const WhatWeDoSection = () => {
           {features.map((feature, index) => (
             <div
               key={feature.title}
-              className={`group relative bg-card rounded-2xl p-8 border border-border hover:border-primary/30 transition-all duration-500 card-hover ${
-                isVisible ? "animate-fade-up" : "opacity-0"
-              }`}
+              className={`group relative bg-card rounded-2xl p-8 border border-border hover:border-primary/30 transition-all duration-500 card-hover ${isVisible ? "animate-fade-up" : "opacity-0"
+                }`}
               style={{ animationDelay: `${(index + 1) * 100}ms` }}
             >
               {/* Gradient background */}
               <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-              
+
               {/* Content */}
               <div className="relative z-10">
                 {/* Icon */}
