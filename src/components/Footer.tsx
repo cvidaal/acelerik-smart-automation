@@ -32,16 +32,7 @@ const Footer = () => {
         <div className="py-12">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-display font-bold text-xl">
-                  A
-                </span>
-              </div>
-              <span className="font-display font-bold text-xl text-foreground">
-                ACELER<span className="text-primary">IK</span>
-              </span>
-            </Link>
+            <Link to="/" aria-label="Acelerik, inicio"><img src="/brand/acelerik-logo.svg" alt="Acelerik" width="180" height="40" /></Link>
 
             {/* Tagline */}
             <p className="text-muted-foreground text-center md:text-left">

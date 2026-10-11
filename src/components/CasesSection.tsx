@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Calendar, CreditCard, LayoutDashboard, Play } from "lucide-react";
+import { Calendar, CreditCard, LayoutDashboard } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -25,8 +25,8 @@ const CasesSection = () => {
                 allow="encrypted-media; picture-in-picture; fullscreen" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
             </div>
           ) : (
-            <div className="min-h-64 sm:aspect-video flex flex-col items-center justify-center text-center p-6 sm:p-10 bg-gradient-card">
-              <Play className="w-12 h-12 text-primary mb-4" aria-hidden="true" />
+            <div className="flex flex-col items-center justify-center text-center p-6 sm:p-10 bg-gradient-card">
+              <img src="/demo/booking-cover.png" alt="Demo Acelerik Booking: reservas de cumpleaños, señal, confirmación y calendario" width="1672" height="941" loading="lazy" className="w-full rounded-lg mb-6" />
               <h3 className="font-display text-xl sm:text-2xl font-bold mb-4">Así funciona una reserva</h3>
               <p className="text-muted-foreground text-sm max-w-lg mb-6">
                 Al cargar el vídeo se establece una conexión con YouTube (Google), que puede tratar datos de navegación.

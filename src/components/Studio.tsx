@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ArrowUpRight, Menu, X, Zap } from 'lucide-react';
+import { ArrowUpRight, Menu, X } from 'lucide-react';
 
 export function SiteNav() {
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
-  return <header className="studio-nav"><Link className="studio-logo" to="/" aria-label="Acelerik, inicio"><Zap fill="currentColor" size={23}/> acelerik</Link><button className="studio-menu" aria-label={open ? 'Cerrar menú' : 'Abrir menú'} aria-expanded={open} onClick={() => setOpen(!open)}>{open ? <X/> : <Menu/>}</button><nav className={open ? 'is-open' : ''} aria-label="Navegación principal"><a href={pathname === '/' ? '#productos' : '/#productos'} onClick={() => setOpen(false)}>Soluciones</a><Link to="/parques" onClick={() => setOpen(false)}>Acelerik Booking</Link><a href="#contacto" onClick={() => setOpen(false)}>Hablemos <ArrowUpRight size={16}/></a></nav></header>;
+  return <header className="studio-nav"><Link className="studio-logo" to="/" aria-label="Acelerik, inicio"><img src="/brand/acelerik-logo.svg" alt="Acelerik" width="180" height="40"/></Link><button className="studio-menu" aria-label={open ? 'Cerrar menú' : 'Abrir menú'} aria-expanded={open} onClick={() => setOpen(!open)}>{open ? <X/> : <Menu/>}</button><nav className={open ? 'is-open' : ''} aria-label="Navegación principal"><a href={pathname === '/' ? '#productos' : '/#productos'} onClick={() => setOpen(false)}>Soluciones</a><Link to="/parques" onClick={() => setOpen(false)}>Acelerik Booking</Link><a href="#contacto" onClick={() => setOpen(false)}>Hablemos <ArrowUpRight size={16}/></a></nav></header>;
 }
 
 export function PageMeta({ parks = false }: { parks?: boolean }) {
