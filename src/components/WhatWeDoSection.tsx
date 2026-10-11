@@ -1,24 +1,24 @@
 import { useEffect, useRef, useState } from "react";
-import { MessageSquare, Cog, Calendar } from "lucide-react";
+import { Calendar, CreditCard, LayoutDashboard } from "lucide-react";
 
 const features = [
   {
-    icon: MessageSquare,
-    title: "Bots Inteligentes de WhatsApp",
-    description: "Una integración opcional para responder consultas por WhatsApp. Se presupuesta aparte y no está incluida en la demo de reservas.",
-    color: "from-green-500/20 to-green-500/5",
-  },
-  {
-    icon: Cog,
-    title: "Automatización de Procesos",
-    description: "Facturación automática, gestión de envíos, emails personalizados, captura de leads y formularios que trabajan solos.",
+    icon: Calendar,
+    title: "Reservas de cumpleaños",
+    description: "La familia elige fecha, sala y horario. Ve al momento qué huecos quedan libres.",
     color: "from-primary/20 to-primary/5",
   },
   {
-    icon: Calendar,
-    title: "Sistemas de Reservas",
-    description: "Consulta de disponibilidad, reservas online, cobro de señal y gestión desde un único panel.",
+    icon: CreditCard,
+    title: "Cobro de señal",
+    description: "La reserva se confirma cuando pagan la señal. Tú no persigues transferencias ni justificantes.",
     color: "from-blue-500/20 to-blue-500/5",
+  },
+  {
+    icon: LayoutDashboard,
+    title: "Panel",
+    description: "Cada cumpleaños, el estado del cobro y el día quedan en un único sitio.",
+    color: "from-green-500/20 to-green-500/5",
   },
 ];
 
@@ -57,11 +57,10 @@ const WhatWeDoSection = () => {
         <div className={`text-center max-w-2xl mx-auto mb-16 ${isVisible ? "animate-fade-up" : "opacity-0"}`}>
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">Qué hacemos</span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-4 mb-6">
-            Automatización inteligente para tu negocio
+            Reservas, señal y panel
           </h2>
           <p className="text-muted-foreground text-lg">
-            Transformamos tareas repetitivas en sistemas que funcionan solos,
-            permitiéndote enfocarte en lo que realmente importa.
+            Tres piezas para que el cumpleaños quede cerrado sin perseguir confirmaciones.
           </p>
         </div>
 

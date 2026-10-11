@@ -32,7 +32,7 @@ const Footer = () => {
         <div className="py-12">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             {/* Logo */}
-            <div className="flex items-center gap-2">
+            <Link to="/" className="flex items-center gap-2">
               <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
                 <span className="text-primary-foreground font-display font-bold text-xl">
                   A
@@ -41,11 +41,11 @@ const Footer = () => {
               <span className="font-display font-bold text-xl text-foreground">
                 ACELER<span className="text-primary">IK</span>
               </span>
-            </div>
+            </Link>
 
             {/* Tagline */}
             <p className="text-muted-foreground text-center md:text-left">
-              Automatización con IA para negocios modernos
+              Reservas online para parques infantiles
             </p>
 
             {/* Social links */}

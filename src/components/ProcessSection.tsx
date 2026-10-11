@@ -1,36 +1,36 @@
 import { useEffect, useRef, useState } from "react";
-import { Search, PenTool, Wrench, Play, Headphones } from "lucide-react";
+import { Phone, CalendarRange, CreditCard, Play, Headphones } from "lucide-react";
 
 const steps = [
   {
     number: "01",
-    icon: Search,
-    title: "Diagnóstico gratis",
-    description: "Analizamos tu negocio y detectamos oportunidades de automatización.",
+    icon: Phone,
+    title: "Llamada de 15 minutos",
+    description: "Conocemos el parque, las salas y cómo cobráis ahora los cumpleaños.",
   },
   {
     number: "02",
-    icon: PenTool,
-    title: "Diseño del sistema",
-    description: "Creamos un plan personalizado con los flujos que necesitas.",
+    icon: CalendarRange,
+    title: "Salas y horarios",
+    description: "Configuramos las salas, las franjas y cuántas fiestas caben en cada una.",
   },
   {
     number: "03",
-    icon: Wrench,
-    title: "Construcción",
-    description: "Desarrollamos tu automatización en n8n, Make o Zapier.",
+    icon: CreditCard,
+    title: "Señal y reservas",
+    description: "Dejamos lista la página donde la familia elige día y paga la señal.",
   },
   {
     number: "04",
     icon: Play,
-    title: "Activación",
-    description: "Ponemos en marcha el sistema y te formamos para usarlo.",
+    title: "Puesta en marcha",
+    description: "Abrimos las reservas y te enseñamos el panel con los primeros cumpleaños.",
   },
   {
     number: "05",
     icon: Headphones,
-    title: "Soporte mensual",
-    description: "Te acompañamos con mantenimiento y mejoras continuas.",
+    title: "Soporte",
+    description: "Seguimos al otro lado cuando haya una duda, un cambio de horario o una sala nueva.",
   },
 ];
 
@@ -72,7 +72,7 @@ const ProcessSection = () => {
             Cómo funciona ACELERIK
           </h2>
           <p className="text-muted-foreground text-lg">
-            Un proceso simple y transparente para automatizar tu negocio.
+            De la llamada de quince minutos a la primera reserva de un cumpleaños.
           </p>
         </div>
 

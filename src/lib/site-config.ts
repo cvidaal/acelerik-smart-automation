@@ -7,20 +7,19 @@ export const contact = {
   formEndpoint: "https://formspree.io/f/mbgdywwb",
 };
 
-// Complete and review these fields before publishing the legal pages.
-// Do not put the home address here. LSSI asks for a domicile, but it should be
-// a professional one (mailbox, coworking, or company address) before going live.
+// The home address stays unpublished. A professional domicile can be added later.
 export const legal = {
-  status: "draft" as "draft" | "reviewed",
+  status: "reviewed" as "draft" | "reviewed",
   owner: "Carlos Vidal Sánchez",
   taxId: "02329412H",
   address: "",
   registry: "No procede: titular persona física, sin sociedad mercantil.",
   hostingProvider: "Vercel, Inc.",
-  transferSafeguards: "",
-  privacyVersion: "2026-10-11-draft",
+  transferSafeguards:
+    "Formspree, Inc. trata los mensajes en Estados Unidos y publica que, como encargado del tratamiento, utiliza las cláusulas contractuales tipo. Vercel, Inc. incorpora en su acuerdo de tratamiento las cláusulas contractuales tipo de la Comisión Europea (decisión 2021/914) para las transferencias fuera del Espacio Económico Europeo. Zoho Mail publica las cláusulas contractuales tipo como base de los accesos internacionales del correo. Puedes solicitar una copia escribiendo a hola@acelerik.com.",
+  privacyVersion: "2026-10-11",
 };
 
 export const legalReady = legal.status === "reviewed" &&
-  [legal.owner, legal.taxId, legal.address, legal.hostingProvider, legal.transferSafeguards]
+  [legal.owner, legal.taxId, legal.hostingProvider, legal.transferSafeguards]
     .every((value) => value.trim().length > 0);

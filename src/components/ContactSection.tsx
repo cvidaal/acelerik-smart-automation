@@ -97,10 +97,10 @@ const ContactSection = () => {
           <div className={`${isVisible ? "animate-slide-right" : "opacity-0"}`}>
             <span className="text-primary font-semibold text-sm uppercase tracking-wider">Contacto</span>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-4 mb-6">
-              ¿Listo para automatizar tu negocio?
+              ¿Quieres ver cómo funcionaría en tu parque?
             </h2>
             <p className="text-muted-foreground text-lg mb-8">
-              Cuéntanos sobre tu negocio y te proponemos las mejores soluciones de automatización.
+              Cuéntanos cómo reservas ahora los cumpleaños y te enseñamos el sistema con las salas de tu parque.
               La primera consulta es <span className="text-primary font-semibold">100% gratis</span>.
             </p>
 
@@ -183,7 +183,7 @@ const ContactSection = () => {
                   </label>
                   <Textarea
                     id="message"
-                    placeholder="Cuéntanos sobre tu negocio y qué te gustaría automatizar..."
+                    placeholder="Cuéntanos cómo funciona tu parque y qué te gustaría resolver..."
                     name="message"
                     maxLength={5000}
                     value={formData.message}

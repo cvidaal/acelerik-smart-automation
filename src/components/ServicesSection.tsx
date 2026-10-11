@@ -1,28 +1,14 @@
 import { contact } from "@/lib/site-config";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Check, Zap, Crown, Share2, Rocket } from "lucide-react";
+import { Check, Zap, Crown } from "lucide-react";
 
 const services = [
-  {
-    icon: Zap,
-    name: "Bot WhatsApp a medida",
-    description: "Integración adicional, con presupuesto independiente del sistema de reservas.",
-    price: "Desde 350€",
-    description_price: "Incluye 1 mes de soporte, luego 50€/mes opcional",
-    features: [
-      "Bot WhatsApp básico",
-      "Integración con Google Sheets",
-      "Respuestas automáticas",
-      "Soporte por email",
-    ],
-    popular: false,
-  },
   {
     icon: Crown,
     name: "Sistema de Reservas Pro",
     description: "Reservas de cumpleaños, cobro de señal y gestión desde el panel.",
-    price: "Desde 599€",
+    price: "Plan piloto para los primeros parques: pregúntanos",
     features: [
       "Reservas online",
       "Cobro de señal",
@@ -33,29 +19,16 @@ const services = [
     popular: true,
   },
   {
-    icon: Share2,
-    name: "Gestión de Redes Sociales",
-    description: "Tu marca activa, bonita y profesional.",
-    price: "Desde 300€",
+    icon: Zap,
+    name: "Bot de WhatsApp",
+    description: "Extra opcional. Se presupuesta aparte y no hace falta para reservar.",
+    price: "Desde 350€",
+    description_price: "Incluye 1 mes de soporte, luego 50€/mes opcional",
     features: [
-      "8 Posts (2 por semana)",
-      "Copywriting persuasivo",
-      "Programación mensual",
-      "Informe de resultados simple",
-    ],
-    popular: false,
-  },
-  {
-    icon: Rocket,
-    name: "Partner Digital 360",
-    description: "Tu departamento de marketing y tecnología externo",
-    price: "A medida",
-    features: [
-      "Mantenimiento de Bots y Reservas (AAA)",
-      "Todo lo incluido en Gestión de Redes.",
-      "Estrategia mensual de crecimiento.",
-      "Soporte Prioritario VIP (WhatsApp directo contigo)",
-      "Reunión mensual de estrategia.",
+      "Respuestas a consultas habituales",
+      "Integración con Google Sheets",
+      "Presupuesto independiente",
+      "Soporte por email",
     ],
     popular: false,
   },
@@ -97,16 +70,15 @@ const ServicesSection = () => {
         <div className={`text-center max-w-2xl mx-auto mb-16 ${isVisible ? "animate-fade-up" : "opacity-0"}`}>
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">Servicios</span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-4 mb-6">
-            Planes que se adaptan a ti
+            Empieza por las reservas
           </h2>
           <p className="text-muted-foreground text-lg">
-            Elige el nivel de automatización que necesita tu negocio.
-            Todos incluyen configuración y formación.
+            El plan del parque es el sistema de reservas. El bot de WhatsApp se añade solo si lo necesitas.
           </p>
         </div>
 
         {/* Services grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {services.map((service, index) => (
             <div
               key={service.name}
@@ -141,10 +113,12 @@ const ServicesSection = () => {
 
               {/* Price */}
               <div className="mb-6">
-                <span className="text-2xl font-display font-bold text-primary">
+                <span className={`font-display font-bold text-primary ${service.popular ? "text-xl leading-snug" : "text-2xl"}`}>
                   {service.price}
                 </span>
-                <p className="text-muted-foreground text-sm mt-2">{service.description_price}</p>
+                {service.description_price && (
+                  <p className="text-muted-foreground text-sm mt-2">{service.description_price}</p>
+                )}
               </div>
 
               {/* Features */}

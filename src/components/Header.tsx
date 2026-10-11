@@ -1,5 +1,6 @@
 import { contact } from "@/lib/site-config";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, MessageCircle } from "lucide-react";
 
@@ -43,7 +44,7 @@ const Header = () => {
       <div className="container mx-auto px-4 md:px-6">
         <nav className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
             <div className="w-8 h-8 md:w-10 md:h-10 bg-primary rounded-lg flex items-center justify-center">
               <span className="text-primary-foreground font-display font-bold text-lg md:text-xl">
                 A
@@ -52,7 +53,7 @@ const Header = () => {
             <span className="font-display font-bold text-lg md:text-xl text-foreground">
               ACELER<span className="text-primary">IK</span>
             </span>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
