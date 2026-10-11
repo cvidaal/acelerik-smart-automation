@@ -101,7 +101,7 @@ const ContactSection = ({ parks = false }: { parks?: boolean }) => {
             </h2>
             <p className="text-muted-foreground text-lg mb-8">
               {parks ? "Cuéntanos cómo reservas ahora los cumpleaños y vemos cómo encaja el sistema." : "Cuéntanos qué proceso te quita tiempo o qué solución te interesa. Hablemos de lo que necesita tu negocio."}
-              La primera consulta es <span className="text-primary font-semibold">100% gratis</span>.
+              {" "}La primera consulta es <span className="text-primary font-semibold">100% gratis</span>.
             </p>
 
             {/* WhatsApp CTA */}

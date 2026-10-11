@@ -1,3 +1,4 @@
+import { Dialog, DialogTrigger, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 
 const shots = [
@@ -36,8 +37,8 @@ const ParkViewSection = () => {
         </div>
         <div className="grid lg:grid-cols-3 gap-6">
           {shots.map((shot) => (
-            <figure key={shot.src} className="bg-card rounded-2xl border border-border overflow-hidden">
-              <img src={shot.src} alt={shot.alt} className="w-full h-auto bg-carbon-light" />
+            <figure key={shot.src} className={`${shot.title !== "Panel" ? "hidden md:block" : ""} bg-card rounded-2xl border border-border overflow-hidden`}>
+              <Dialog><DialogTrigger asChild><button type="button" className="block w-full cursor-zoom-in focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary" aria-label={`Ver ${shot.title} en grande`}><img src={shot.src} alt={shot.alt} loading="lazy" className="w-full h-auto bg-carbon-light" /></button></DialogTrigger><DialogContent className="w-[94vw] max-w-6xl max-h-[92dvh] overflow-hidden rounded-xl p-3 sm:p-5 gap-3"><DialogTitle className="pr-10">{shot.title}</DialogTitle><DialogDescription className="sr-only">{shot.caption}</DialogDescription><div className="overflow-auto max-h-[78dvh] rounded-lg"><img src={shot.src} alt={shot.alt} className="block w-full h-auto" /></div></DialogContent></Dialog>
               <figcaption className="p-5">
                 <h3 className="font-display text-lg font-bold text-foreground mb-1">{shot.title}</h3>
                 <p className="text-muted-foreground text-sm">{shot.caption}</p>

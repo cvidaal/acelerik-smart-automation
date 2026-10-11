@@ -2,14 +2,14 @@ import { contact } from "@/lib/site-config";
 import { MessageCircle, Instagram, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const Footer = () => {
+const Footer = ({ parks = false }: { parks?: boolean }) => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
     {
       icon: MessageCircle,
       label: "WhatsApp",
-      href: `https://wa.me/34608429382?text=${encodeURIComponent("Hola, me interesan las soluciones de Acelerik")}`,
+      href: parks ? contact.whatsapp : `https://wa.me/34608429382?text=${encodeURIComponent("Hola, me interesan las soluciones de Acelerik")}`,
       color: "hover:text-[#25D366]",
     },
     {
@@ -36,7 +36,7 @@ const Footer = () => {
 
             {/* Tagline */}
             <p className="text-muted-foreground text-center md:text-left">
-              Software y automatización. Más impulso para tu negocio.
+              {parks ? "Reservas online para parques infantiles" : "Software y automatización. Más impulso para tu negocio."}
             </p>
 
             {/* Social links */}

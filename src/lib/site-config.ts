@@ -3,7 +3,7 @@ export const siteUrl = "https://www.acelerik.com";
 export const contact = {
   email: "hola@acelerik.com",
   phone: "+34 608 429 382",
-  whatsapp: `https://wa.me/34608429382?text=${encodeURIComponent("Hola, me interesa el sistema de reservas")}`,
+  whatsapp: `https://wa.me/34608429382?text=${encodeURIComponent("Hola, me interesa Acelerik Booking para mi parque")}`,
   formEndpoint: "https://formspree.io/f/mbgdywwb",
 };
 

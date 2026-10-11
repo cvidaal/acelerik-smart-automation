@@ -3,8 +3,10 @@ import { Calendar, CreditCard, LayoutDashboard } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
-const CasesSection = () => {
-  const [videoLoaded, setVideoLoaded] = useState(false);
+const CasesSection = ({ videoLoaded: controlledVideo, onVideoChange }: { videoLoaded?: boolean; onVideoChange?: (loaded: boolean) => void }) => {
+  const [localVideo, setLocalVideo] = useState(false);
+  const videoLoaded = controlledVideo ?? localVideo;
+  const setVideoLoaded = onVideoChange ?? setLocalVideo;
   return (
     <section id="casos" className="py-24 md:py-32 bg-carbon-light relative overflow-hidden scroll-mt-20">
       <div className="container mx-auto px-4 md:px-6 relative z-10">
@@ -20,9 +22,9 @@ const CasesSection = () => {
         <div className="max-w-4xl mx-auto bg-card rounded-2xl border border-border overflow-hidden">
           {videoLoaded ? (
             <div className="aspect-video">
-              <iframe className="w-full h-full" src="https://www.youtube-nocookie.com/embed/GGFnJBzPR6k?rel=0"
+              <iframe className="w-full h-full" src="https://www.youtube-nocookie.com/embed/GGFnJBzPR6k?rel=0&autoplay=1"
                 title="Demo de Acelerik Booking: reservas, pago de señal y panel"
-                allow="encrypted-media; picture-in-picture; fullscreen" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
+                allow="autoplay; encrypted-media; picture-in-picture; fullscreen" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
             </div>
           ) : (
             <div className="flex flex-col items-center justify-center text-center p-6 sm:p-10 bg-gradient-card">
@@ -32,7 +34,7 @@ const CasesSection = () => {
                 Al cargar el vídeo se establece una conexión con YouTube (Google), que puede tratar datos de navegación.
                 Consulta la <Link to="/privacidad" className="text-primary underline">política de privacidad</Link>.
               </p>
-              <Button variant="hero" onClick={() => setVideoLoaded(true)}>Cargar vídeo de YouTube</Button>
+              <Button variant="hero" onClick={() => setVideoLoaded(true)}>Ver el vídeo</Button>
             </div>
           )}
           <div className="p-6 sm:p-8">

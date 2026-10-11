@@ -13,6 +13,7 @@ export function PageMeta({ parks = false }: { parks?: boolean }) {
     const title = parks ? 'Acelerik Booking | Reservas para parques infantiles' : 'Acelerik | Software y automatizaciones para tu negocio';
     const description = parks ? 'Reservas de cumpleaños, cobro de señales y gestión desde un panel. Conoce Acelerik Booking y prueba la demo para parques infantiles.' : 'Software y automatizaciones para simplificar el trabajo de tu negocio. Descubre Acelerik Booking y cuéntanos qué proceso quieres automatizar.';
     document.title = title;
+    for (const selector of ['meta[property="og:image"]', 'meta[name="twitter:image"]']) document.querySelector(selector)?.setAttribute("content", `https://www.acelerik.com${parks ? "/demo/booking-cover.png" : "/og-image.png"}`);
     document.querySelector('link[rel="canonical"]')?.setAttribute('href', `https://www.acelerik.com${parks ? '/parques' : '/'}`);
     for (const selector of ['meta[name="description"]','meta[property="og:description"]','meta[name="twitter:description"]']) document.querySelector(selector)?.setAttribute('content', description);
     for (const selector of ['meta[property="og:title"]','meta[name="twitter:title"]']) document.querySelector(selector)?.setAttribute('content', title);
