@@ -4,10 +4,15 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { MessageCircle, Mail, ArrowRight } from "lucide-react";
 import { toast } from "sonner";
+import { Link } from "react-router-dom";
+import { contact, legal } from "@/lib/site-config";
 
 const ContactSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
+  const [submissionError, setSubmissionError] = useState("");
+  const submittingRef = useRef(false);
   const sectionRef = useRef<HTMLElement>(null);
   const [formData, setFormData] = useState({
     name: "",
@@ -34,16 +39,31 @@ const ContactSection = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (submittingRef.current) return;
+    if (!privacyAccepted) {
+      setSubmissionError("Debes autorizar el tratamiento de tus datos para enviar la consulta.");
+      return;
+    }
+    submittingRef.current = true;
     setIsSubmitting(true);
+    setSubmissionError("");
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 15000);
 
     try {
-      const response = await fetch("https://formspree.io/f/movgkkpk", {
+      const response = await fetch(contact.formEndpoint, {
         method: "POST",
+        signal: controller.signal,
+        credentials: "omit",
         headers: {
           "Content-Type": "application/json",
           'Accept': 'application/json'
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          privacy_consent: true,
+          privacy_version: legal.privacyVersion,
+        }),
       });
 
       if (!response.ok) {
@@ -52,17 +72,14 @@ const ContactSection = () => {
 
       toast.success("¡Mensaje enviado! Te contactaremos pronto.");
       setFormData({ name: "", email: "", message: "" });
+      setPrivacyAccepted(false);
+    } catch {
+      setSubmissionError("No hemos podido confirmar el envío. Conservamos tu mensaje para que puedas reintentarlo o contactar por email o WhatsApp.");
+    } finally {
+      window.clearTimeout(timeout);
+      submittingRef.current = false;
       setIsSubmitting(false);
-    } catch (error) {
-      console.log(error);
     }
-
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-
-    toast.success("¡Mensaje enviado! Te contactaremos pronto.");
-    setFormData({ name: "", email: "", message: "" });
-    setIsSubmitting(false);
   };
 
   return (
@@ -101,7 +118,7 @@ const ContactSection = () => {
               <Button
                 variant="whatsapp"
                 className="w-full"
-                onClick={() => window.open("https://wa.me/34608429382?text=Hola,%20quiero%20digitalizar%20mi%20negocio.%20%C2%BFCu%C3%A1ndo%20podemos%20hablar?", "_blank")}
+                onClick={() => window.open(contact.whatsapp, "_blank", "noopener,noreferrer")}
               >
                 <MessageCircle className="w-5 h-5" />
                 Hablar con ACELERIK
@@ -112,18 +129,19 @@ const ContactSection = () => {
             {/* Email info */}
             <div className="flex items-center gap-3 text-muted-foreground">
               <Mail className="w-5 h-5 text-primary" />
-              <span>acelerikagency@gmail.com</span>
+              <a href={`mailto:${contact.email}`} className="break-all hover:text-primary underline">{contact.email}</a>
             </div>
           </div>
 
           {/* Right form */}
           <div className={`${isVisible ? "animate-fade-up animation-delay-200" : "opacity-0"}`}>
-            <form onSubmit={handleSubmit} className="bg-card rounded-2xl p-8 border border-border">
+            <form onSubmit={handleSubmit} aria-busy={isSubmitting} className="bg-card rounded-2xl p-8 border border-border">
               <h3 className="font-display text-2xl font-bold text-foreground mb-6">
                 Envíanos un mensaje
               </h3>
 
-              <div className="space-y-4">
+              <fieldset disabled={isSubmitting} className="space-y-4">
+                <legend className="sr-only">Datos de contacto y consulta</legend>
                 <div>
                   <label htmlFor="name" className="text-sm font-medium text-foreground mb-2 block">
                     Nombre
@@ -132,6 +150,8 @@ const ContactSection = () => {
                     id="name"
                     placeholder="Tu nombre"
                     name="name"
+                    autoComplete="name"
+                    maxLength={120}
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     required
@@ -147,6 +167,8 @@ const ContactSection = () => {
                     id="email"
                     type="email"
                     name="email"
+                    autoComplete="email"
+                    maxLength={254}
                     placeholder="tu@email.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -163,6 +185,7 @@ const ContactSection = () => {
                     id="message"
                     placeholder="Cuéntanos sobre tu negocio y qué te gustaría automatizar..."
                     name="message"
+                    maxLength={5000}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     required
@@ -171,6 +194,21 @@ const ContactSection = () => {
                   />
                 </div>
 
+                <div className="rounded-lg border border-border bg-background p-4 text-xs text-muted-foreground space-y-2" id="privacy-summary">
+                  <p><strong>Responsable:</strong> {legal.owner || "Titular de ACELERIK (identificación pendiente de completar)"}.</p>
+                  <p><strong>Finalidad:</strong> responder a tu consulta. <strong>Base jurídica:</strong> tu consentimiento. El envío se tramita mediante Formspree, con tratamiento en Estados Unidos.</p>
+                  <p><strong>Derechos:</strong> puedes retirar tu consentimiento y solicitar acceso, rectificación o supresión en {contact.email}. Consulta los demás derechos y detalles en la <Link to="/privacidad" target="_blank" rel="noopener noreferrer" className="text-primary underline">política de privacidad (nueva pestaña)</Link>.</p>
+                  <p>No incluyas datos de menores ni información sensible.</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <input id="privacy-consent" name="privacy-consent" type="checkbox" required checked={privacyAccepted}
+                    onChange={(event) => setPrivacyAccepted(event.target.checked)}
+                    aria-describedby="privacy-summary" className="mt-1 h-4 w-4 shrink-0 accent-primary" />
+                  <label htmlFor="privacy-consent" className="text-sm text-muted-foreground">
+                    Acepto la <Link to="/privacidad" target="_blank" rel="noopener noreferrer" className="text-primary underline">política de privacidad</Link> y consiento el tratamiento de mis datos para responder a esta consulta.
+                  </label>
+                </div>
+                {submissionError && <p role="alert" className="text-sm text-destructive">{submissionError}</p>}
                 <Button
                   type="submit"
                   variant="hero"
@@ -180,7 +218,7 @@ const ContactSection = () => {
                   {isSubmitting ? "Enviando..." : "Enviar mensaje"}
                   <ArrowRight className="w-5 h-5" />
                 </Button>
-              </div>
+              </fieldset>
             </form>
           </div>
         </div>

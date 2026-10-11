@@ -1,3 +1,4 @@
+import { contact } from "@/lib/site-config";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, MessageCircle } from "lucide-react";
@@ -6,8 +7,6 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const messageWha =
-    "Hola Acelerik,%20he%20visto%20vuestra%20web%20y%20quiero%20automatizar%20mi%20negocio.%20%C2%BFPodemos%20hablar?";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,7 +20,7 @@ const Header = () => {
     { label: "Qué hacemos", href: "#que-hacemos" },
     { label: "Servicios", href: "#servicios" },
     { label: "Proceso", href: "#proceso" },
-    { label: "Casos", href: "#casos" },
+    { label: "Demo", href: "#casos" },
     { label: "Contacto", href: "#contacto" },
   ];
 
@@ -75,7 +74,7 @@ const Header = () => {
               size="sm"
               onClick={() =>
                 window.open(
-                  `https://wa.me/34608429382?text=${messageWha}`,
+                  contact.whatsapp,
                   "_blank"
                 )
               }
@@ -87,6 +86,8 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
+            aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
+            aria-expanded={isMobileMenuOpen}
             className="md:hidden text-foreground p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
@@ -116,7 +117,7 @@ const Header = () => {
                   variant="whatsapp"
                   className="w-full"
                   onClick={() =>
-                    window.open("https://wa.me/34608429382", "_blank")
+                    window.open(contact.whatsapp, "_blank", "noopener,noreferrer")
                   }
                 >
                   <MessageCircle className="w-4 h-4" />

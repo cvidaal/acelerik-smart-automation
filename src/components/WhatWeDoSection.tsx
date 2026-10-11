@@ -5,7 +5,7 @@ const features = [
   {
     icon: MessageSquare,
     title: "Bots Inteligentes de WhatsApp",
-    description: "Responden preguntas, gestionan reservas, informan de precios y horarios. Tu negocio disponible 24/7 sin intervención manual.",
+    description: "Una integración opcional para responder consultas por WhatsApp. Se presupuesta aparte y no está incluida en la demo de reservas.",
     color: "from-green-500/20 to-green-500/5",
   },
   {
@@ -17,7 +17,7 @@ const features = [
   {
     icon: Calendar,
     title: "Sistemas de Reservas",
-    description: "Integración completa con Google Calendar, Sheets. Tus clientes reservan, tú descansas.",
+    description: "Consulta de disponibilidad, reservas online, cobro de señal y gestión desde un único panel.",
     color: "from-blue-500/20 to-blue-500/5",
   },
 ];

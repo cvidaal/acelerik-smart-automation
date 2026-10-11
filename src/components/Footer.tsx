@@ -1,4 +1,6 @@
+import { contact } from "@/lib/site-config";
 import { MessageCircle, Instagram, Linkedin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -7,7 +9,7 @@ const Footer = () => {
     {
       icon: MessageCircle,
       label: "WhatsApp",
-      href: "https://wa.me/34608429382",
+      href: contact.whatsapp,
       color: "hover:text-[#25D366]",
     },
     {
@@ -67,13 +69,19 @@ const Footer = () => {
         {/* Bottom bar */}
         <div className="py-6 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <p>© {currentYear} ACELERIK. Todos los derechos reservados.</p>
-          <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-primary transition-colors">
+          <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-3">
+            <Link to="/aviso-legal" className="hover:text-primary transition-colors">
+              Aviso legal
+            </Link>
+            <Link to="/privacidad" className="hover:text-primary transition-colors">
               Política de privacidad
-            </a>
-            <a href="#" className="hover:text-primary transition-colors">
+            </Link>
+            <Link to="/terminos" className="hover:text-primary transition-colors">
               Términos de uso
-            </a>
+            </Link>
+            <Link to="/cookies" className="hover:text-primary transition-colors">
+              Cookies
+            </Link>
           </div>
         </div>
       </div>

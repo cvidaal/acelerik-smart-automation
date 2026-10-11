@@ -1,3 +1,4 @@
+import { contact } from "@/lib/site-config";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Check, Zap, Crown, Share2, Rocket } from "lucide-react";
@@ -5,8 +6,8 @@ import { Check, Zap, Crown, Share2, Rocket } from "lucide-react";
 const services = [
   {
     icon: Zap,
-    name: "Bot WhatsApp 24/7",
-    description: "Bot de WhatsApp que atiende clientes 24/7.",
+    name: "Bot WhatsApp a medida",
+    description: "Integración adicional, con presupuesto independiente del sistema de reservas.",
     price: "Desde 350€",
     description_price: "Incluye 1 mes de soporte, luego 50€/mes opcional",
     features: [
@@ -20,12 +21,12 @@ const services = [
   {
     icon: Crown,
     name: "Sistema de Reservas Pro",
-    description: "Sistemas completos para crecer",
+    description: "Reservas de cumpleaños, cobro de señal y gestión desde el panel.",
     price: "Desde 599€",
     features: [
-      "Bot WhatsApp avanzado",
-      "Sistema de reservas completo",
-      "Integraciones múltiples",
+      "Reservas online",
+      "Cobro de señal",
+      "Consulta de disponibilidad",
       "Panel de control",
       "Soporte prioritario",
     ],
@@ -119,7 +120,7 @@ const ServicesSection = () => {
               {service.popular && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                   <span className="bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full">
-                    MÁS POPULAR
+                    DESTACADO
                   </span>
                 </div>
               )}
@@ -160,7 +161,7 @@ const ServicesSection = () => {
               <Button
                 variant={service.popular ? "default" : "outline"}
                 className="w-full"
-                onClick={() => window.open("https://wa.me/34608429382", "_blank")}
+                onClick={() => window.open(contact.whatsapp, "_blank", "noopener,noreferrer")}
               >
                 Solicitar info
               </Button>
