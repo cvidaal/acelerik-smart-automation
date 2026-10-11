@@ -7,7 +7,7 @@ import { toast } from "sonner";
 import { Link } from "react-router-dom";
 import { contact, legal } from "@/lib/site-config";
 
-const ContactSection = () => {
+const ContactSection = ({ parks = false }: { parks?: boolean }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
@@ -97,10 +97,10 @@ const ContactSection = () => {
           <div className={`${isVisible ? "animate-slide-right" : "opacity-0"}`}>
             <span className="text-primary font-semibold text-sm uppercase tracking-wider">Contacto</span>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-4 mb-6">
-              ¿Quieres ver cómo funcionaría en tu parque?
+              {parks ? "¿Lo vemos en tu parque?" : "¿Qué te gustaría dejar de hacer a mano?"}
             </h2>
             <p className="text-muted-foreground text-lg mb-8">
-              Cuéntanos cómo reservas ahora los cumpleaños y te enseñamos el sistema con las salas de tu parque.
+              {parks ? "Cuéntanos cómo reservas ahora los cumpleaños y vemos cómo encaja el sistema." : "Cuéntanos qué proceso te quita tiempo o qué solución te interesa. Hablemos de lo que necesita tu negocio."}
               La primera consulta es <span className="text-primary font-semibold">100% gratis</span>.
             </p>
 
@@ -112,13 +112,13 @@ const ContactSection = () => {
                 </div>
                 <div>
                   <h3 className="font-display font-bold text-foreground">¿Prefieres WhatsApp?</h3>
-                  <p className="text-muted-foreground text-sm">Respuesta en menos de 24h</p>
+                  <p className="text-muted-foreground text-sm">Habla directamente con nosotros</p>
                 </div>
               </div>
               <Button
                 variant="whatsapp"
                 className="w-full"
-                onClick={() => window.open(contact.whatsapp, "_blank", "noopener,noreferrer")}
+                onClick={() => window.open(parks ? contact.whatsapp : `https://wa.me/34608429382?text=${encodeURIComponent("Hola, me interesan las soluciones de Acelerik")}`, "_blank", "noopener,noreferrer")}
               >
                 <MessageCircle className="w-5 h-5" />
                 Hablar con ACELERIK
@@ -183,7 +183,7 @@ const ContactSection = () => {
                   </label>
                   <Textarea
                     id="message"
-                    placeholder="Cuéntanos cómo funciona tu parque y qué te gustaría resolver..."
+                    placeholder={parks ? "Cuéntanos cómo funciona tu parque..." : "¿Qué te gustaría automatizar en tu negocio?"}
                     name="message"
                     maxLength={5000}
                     value={formData.message}

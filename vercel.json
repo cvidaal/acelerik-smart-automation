@@ -1,5 +1,6 @@
 {
   "rewrites": [
+    { "source": "/parques", "destination": "/parques/index.html" },
     { "source": "/aviso-legal", "destination": "/index.html" },
     { "source": "/privacidad", "destination": "/index.html" },
     { "source": "/cookies", "destination": "/index.html" },

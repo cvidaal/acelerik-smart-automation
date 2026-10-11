@@ -9,7 +9,7 @@ const Footer = () => {
     {
       icon: MessageCircle,
       label: "WhatsApp",
-      href: contact.whatsapp,
+      href: `https://wa.me/34608429382?text=${encodeURIComponent("Hola, me interesan las soluciones de Acelerik")}`,
       color: "hover:text-[#25D366]",
     },
     {
@@ -45,7 +45,7 @@ const Footer = () => {
 
             {/* Tagline */}
             <p className="text-muted-foreground text-center md:text-left">
-              Reservas online para parques infantiles
+              Software y automatización. Más impulso para tu negocio.
             </p>
 
             {/* Social links */}
