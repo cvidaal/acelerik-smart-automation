@@ -3,7 +3,7 @@ export const siteUrl = "https://www.acelerik.com";
 export const contact = {
   email: "hola@acelerik.com",
   phone: "+34 608 429 382",
-  whatsapp: `https://wa.me/34608429382?text=${encodeURIComponent("Hola, me interesa Acelerik Booking para mi parque")}`,
+  whatsapp: `https://wa.me/34657506301?text=${encodeURIComponent("Hola, me interesa Acelerik Booking para mi parque")}`,
   formEndpoint: "https://formspree.io/f/mbgdywwb",
 };
 
@@ -20,6 +20,11 @@ export const legal = {
   privacyVersion: "2026-10-11",
 };
 
-export const legalReady = legal.status === "reviewed" &&
-  [legal.owner, legal.taxId, legal.hostingProvider, legal.transferSafeguards]
-    .every((value) => value.trim().length > 0);
+export const legalReady =
+  legal.status === "reviewed" &&
+  [
+    legal.owner,
+    legal.taxId,
+    legal.hostingProvider,
+    legal.transferSafeguards,
+  ].every((value) => value.trim().length > 0);

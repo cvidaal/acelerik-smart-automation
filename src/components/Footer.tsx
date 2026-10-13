@@ -9,7 +9,9 @@ const Footer = ({ parks = false }: { parks?: boolean }) => {
     {
       icon: MessageCircle,
       label: "WhatsApp",
-      href: parks ? contact.whatsapp : `https://wa.me/34608429382?text=${encodeURIComponent("Hola, me interesan las soluciones de Acelerik")}`,
+      href: parks
+        ? contact.whatsapp
+        : `https://wa.me/34657506301?text=${encodeURIComponent("Hola, me interesan las soluciones de Acelerik")}`,
       color: "hover:text-[#25D366]",
     },
     {
@@ -32,11 +34,20 @@ const Footer = ({ parks = false }: { parks?: boolean }) => {
         <div className="py-12">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             {/* Logo */}
-            <Link to="/" aria-label="Acelerik, inicio"><img src="/brand/acelerik-logo.svg" alt="Acelerik" width="180" height="40" /></Link>
+            <Link to="/" aria-label="Acelerik, inicio">
+              <img
+                src="/brand/acelerik-logo.svg"
+                alt="Acelerik"
+                width="180"
+                height="40"
+              />
+            </Link>
 
             {/* Tagline */}
             <p className="text-muted-foreground text-center md:text-left">
-              {parks ? "Reservas online para parques infantiles" : "Software y automatización. Más impulso para tu negocio."}
+              {parks
+                ? "Reservas online para parques infantiles"
+                : "Software y automatización. Más impulso para tu negocio."}
             </p>
 
             {/* Social links */}
@@ -61,16 +72,28 @@ const Footer = ({ parks = false }: { parks?: boolean }) => {
         <div className="py-6 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <p>© {currentYear} ACELERIK. Todos los derechos reservados.</p>
           <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-3">
-            <Link to="/aviso-legal" className="hover:text-primary transition-colors">
+            <Link
+              to="/aviso-legal"
+              className="hover:text-primary transition-colors"
+            >
               Aviso legal
             </Link>
-            <Link to="/privacidad" className="hover:text-primary transition-colors">
+            <Link
+              to="/privacidad"
+              className="hover:text-primary transition-colors"
+            >
               Política de privacidad
             </Link>
-            <Link to="/terminos" className="hover:text-primary transition-colors">
+            <Link
+              to="/terminos"
+              className="hover:text-primary transition-colors"
+            >
               Términos de uso
             </Link>
-            <Link to="/cookies" className="hover:text-primary transition-colors">
+            <Link
+              to="/cookies"
+              className="hover:text-primary transition-colors"
+            >
               Cookies
             </Link>
           </div>
