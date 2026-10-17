@@ -3,3 +3,5 @@
 .studio-logo img{width:180px;height:auto;display:block}.engine{background:#181b15;border:1px solid #ffb32955;box-shadow:0 22px 100px #d89c1226}.engine img{width:90px;height:90px;object-fit:contain}.engine span{color:#ffb329}.studio footer img{width:180px;height:auto}@media(max-width:700px){.studio-logo img{width:155px}.engine img{width:75px;height:75px}}
 .studio-nav nav a.nav-whatsapp{background:#25D366;color:#fff;border-color:#25D366;gap:8px;font-weight:700}
 .studio-nav nav a.nav-whatsapp:hover{background:#20BD5A;color:#fff}
+.label-two{top:280px}@media(max-width:700px){.label-two{top:255px}}
+@media(max-width:380px){.automation-art{height:470px}.label-two{top:268px}.label-three{top:352px}}

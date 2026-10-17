@@ -47,7 +47,7 @@ export default function Index() {
             <div className="orbit orbit-one" /><div className="orbit orbit-two" /><div className="orbit orbit-three" /><div className="art-grid" />
             <div className="engine"><img src="/brand/acelerik-icon-transparent.svg" alt="" width="90" height="90" /><span>ACELERIK</span></div>
             <div className="floating-label label-one"><Inbox size={20} /><div><small>ENTRADA</small><strong>Nueva solicitud</strong></div><span className="tiny-dot" /></div>
-            <div className="floating-label label-two"><Sparkles size={20} /><div><small>IA</small><strong>Entendida y clasificada</strong></div><Check size={15} /></div>
+            <div className="floating-label label-two"><Sparkles size={20} /><div><small>IA</small><strong>Clasificada</strong></div><Check size={15} /></div>
             <div className="floating-label label-three"><Layers size={20} /><div><small>RESULTADO</small><strong>Todo en su sitio</strong></div></div>
             <div className="art-caption">
               <span>Un proceso conectado. Un negocio en marcha.</span>
