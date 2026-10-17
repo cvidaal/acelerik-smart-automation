@@ -16,7 +16,7 @@ Todo el contenido visible está en **español de España** y se dirige a dueños
 - Tailwind CSS 3 + shadcn/ui (Radix) en `src/components/ui/`, alias `@/` → `src/`.
 - React Router 6 (SPA). React Query está montado pero no se usa para datos.
 - Formulario de contacto: `fetch` directo a **Formspree**; toasts con `sonner`.
-- Alojamiento: **Vercel**. Correo: hola@acelerik.com (Zoho Mail).
+- Alojamiento: **Vercel** (pendiente de migrar a Cloudflare). DNS de acelerik.com en **Cloudflare** (dominio registrado en GoDaddy); `@` y `www` apuntan a Vercel en modo "DNS only". Correo: hola@acelerik.com (Zoho Mail): no tocar los registros MX, SPF, DKIM (`zmail._domainkey`) ni DMARC.
 - Sin backend propio, sin variables de entorno, sin analítica ni cookies. El README menciona n8n/OpenAI, pero no hay nada de eso en el código.
 
 ## Comandos
