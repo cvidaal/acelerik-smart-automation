@@ -1,0 +1,3 @@
+# Booking tiene su propia web.
+/parques    https://booking.acelerik.com/  301
+/parques/*  https://booking.acelerik.com/  301

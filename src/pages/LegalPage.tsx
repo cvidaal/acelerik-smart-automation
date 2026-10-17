@@ -236,23 +236,6 @@ export default function LegalPage({ kind }: { kind: LegalKind }) {
                 </p>
               </section>
               <section>
-                <h2>Vídeo de demostración</h2>
-                <p>
-                  El vídeo de YouTube solo se carga al pulsar el botón
-                  correspondiente. Al hacerlo, Google recibe datos técnicos de
-                  tu conexión y puede utilizar tecnologías de almacenamiento.
-                  Puedes retirar esa elección cerrando el vídeo. Consulta la{" "}
-                  <a
-                    href="https://policies.google.com/privacy"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    política de privacidad de Google
-                  </a>
-                  .
-                </p>
-              </section>
-              <section>
                 <h2>4. Conservación</h2>
                 <p>
                   Los datos se conservarán durante el tiempo necesario para
@@ -322,17 +305,6 @@ export default function LegalPage({ kind }: { kind: LegalKind }) {
                   externas que aplican sus propias políticas. El formulario
                   envía los datos a Formspree únicamente al solicitar su envío;
                   no carga un formulario incrustado de ese proveedor.
-                </p>
-              </section>
-              <section>
-                <h2>Vídeo de YouTube</h2>
-                <p>
-                  El reproductor se carga únicamente cuando eliges ver el vídeo.
-                  Utiliza el modo de privacidad mejorada de YouTube. Al
-                  reproducirlo, Google puede tratar datos y utilizar tecnologías
-                  de almacenamiento. Puedes cerrar el vídeo para dejar de cargar
-                  el reproductor; para eliminar datos ya guardados, utiliza los
-                  ajustes de tu navegador.
                 </p>
               </section>
               <section>

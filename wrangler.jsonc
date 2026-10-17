@@ -1,0 +1,10 @@
+{
+  // Sitio estático en Cloudflare Workers (solo assets, sin código de Worker).
+  "name": "acelerik-web",
+  "compatibility_date": "2026-10-13",
+  "assets": {
+    "directory": "./dist/",
+    // Las rutas de React (legales, 404) se sirven con index.html.
+    "not_found_handling": "single-page-application"
+  }
+}

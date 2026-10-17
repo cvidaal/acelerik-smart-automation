@@ -8,8 +8,12 @@ export const contact = {
   phone: "+34 657 506 301",
   phoneHref: `tel:+${whatsappNumber}`,
   whatsapp: whatsappLink("Hola, me interesan las soluciones de Acelerik"),
-  whatsappBooking: whatsappLink("Hola, me interesa Acelerik Booking para mi parque"),
   formEndpoint: "https://formspree.io/f/mbgdywwb",
+};
+
+// Each product has its own site.
+export const products = {
+  booking: "https://booking.acelerik.com",
 };
 
 // The home address stays unpublished. A professional domicile can be added later.
@@ -19,10 +23,10 @@ export const legal = {
   taxId: "02329412H",
   address: "",
   registry: "No procede: titular persona física, sin sociedad mercantil.",
-  hostingProvider: "Vercel, Inc.",
+  hostingProvider: "Cloudflare, Inc.",
   transferSafeguards:
-    "Formspree, Inc. trata los mensajes en Estados Unidos y publica que, como encargado del tratamiento, utiliza las cláusulas contractuales tipo. Vercel, Inc. incorpora en su acuerdo de tratamiento las cláusulas contractuales tipo de la Comisión Europea (decisión 2021/914) para las transferencias fuera del Espacio Económico Europeo. Zoho Mail publica las cláusulas contractuales tipo como base de los accesos internacionales del correo. Puedes solicitar una copia escribiendo a hola@acelerik.com.",
-  privacyVersion: "2026-10-11",
+    "Formspree, Inc. trata los mensajes en Estados Unidos y publica que, como encargado del tratamiento, utiliza las cláusulas contractuales tipo. Cloudflare, Inc. está adherida al Marco de Privacidad de Datos UE-EE. UU. y su acuerdo de tratamiento incorpora las cláusulas contractuales tipo de la Comisión Europea (decisión 2021/914) para las transferencias fuera del Espacio Económico Europeo. Zoho Mail publica las cláusulas contractuales tipo como base de los accesos internacionales del correo. Puedes solicitar una copia escribiendo a hola@acelerik.com.",
+  privacyVersion: "2026-10-17",
 };
 
 export const legalReady =

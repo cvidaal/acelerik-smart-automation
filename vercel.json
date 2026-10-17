@@ -1,6 +1,8 @@
 {
+  "redirects": [
+    { "source": "/parques", "destination": "https://booking.acelerik.com/", "permanent": true }
+  ],
   "rewrites": [
-    { "source": "/parques", "destination": "/parques/index.html" },
     { "source": "/aviso-legal", "destination": "/index.html" },
     { "source": "/privacidad", "destination": "/index.html" },
     { "source": "/cookies", "destination": "/index.html" },

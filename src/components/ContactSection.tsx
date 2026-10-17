@@ -7,7 +7,7 @@ import { toast } from "sonner";
 import { Link } from "react-router-dom";
 import { contact, legal } from "@/lib/site-config";
 
-const ContactSection = ({ parks = false }: { parks?: boolean }) => {
+const ContactSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [privacyAccepted, setPrivacyAccepted] = useState(false);
@@ -63,6 +63,8 @@ const ContactSection = ({ parks = false }: { parks?: boolean }) => {
         },
         body: JSON.stringify({
           ...formData,
+          _subject: "Nueva consulta desde acelerik.com",
+          source: "www.acelerik.com",
           privacy_consent: true,
           privacy_version: legal.privacyVersion,
         }),
@@ -103,14 +105,11 @@ const ContactSection = ({ parks = false }: { parks?: boolean }) => {
               Contacto
             </span>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-4 mb-6">
-              {parks
-                ? "¿Lo vemos en tu parque?"
-                : "¿Qué te gustaría dejar de hacer a mano?"}
+              ¿Qué te gustaría dejar de hacer a mano?
             </h2>
             <p className="text-muted-foreground text-lg mb-8">
-              {parks
-                ? "Cuéntanos cómo reservas ahora los cumpleaños y vemos cómo encaja el sistema."
-                : "Cuéntanos qué proceso te quita tiempo o qué solución te interesa. Hablemos de lo que necesita tu negocio."}{" "}
+              Cuéntanos qué proceso te quita tiempo y vemos si se puede
+              automatizar.{" "}
               La primera consulta es{" "}
               <span className="text-primary font-semibold">100% gratis</span>.
             </p>
@@ -135,7 +134,7 @@ const ContactSection = ({ parks = false }: { parks?: boolean }) => {
                 className="w-full"
                 onClick={() =>
                   window.open(
-                    parks ? contact.whatsappBooking : contact.whatsapp,
+                    contact.whatsapp,
                     "_blank",
                     "noopener,noreferrer",
                   )
@@ -230,11 +229,7 @@ const ContactSection = ({ parks = false }: { parks?: boolean }) => {
                   </label>
                   <Textarea
                     id="message"
-                    placeholder={
-                      parks
-                        ? "Cuéntanos cómo funciona tu parque..."
-                        : "¿Qué te gustaría automatizar en tu negocio?"
-                    }
+                    placeholder="¿Qué te gustaría automatizar en tu negocio?"
                     name="message"
                     maxLength={5000}
                     value={formData.message}
