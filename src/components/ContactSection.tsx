@@ -135,9 +135,7 @@ const ContactSection = ({ parks = false }: { parks?: boolean }) => {
                 className="w-full"
                 onClick={() =>
                   window.open(
-                    parks
-                      ? contact.whatsapp
-                      : `https://wa.me/34657506301?text=${encodeURIComponent("Hola, me interesan las soluciones de Acelerik")}`,
+                    parks ? contact.whatsappBooking : contact.whatsapp,
                     "_blank",
                     "noopener,noreferrer",
                   )

@@ -135,7 +135,7 @@ export default function LegalPage({ kind }: { kind: LegalKind }) {
                   <div>
                     <dt className="font-semibold text-foreground">Teléfono</dt>
                     <dd>
-                      <a href="tel:+34657506301">{contact.phone}</a>
+                      <a href={contact.phoneHref}>{contact.phone}</a>
                     </dd>
                   </div>
                 </dl>

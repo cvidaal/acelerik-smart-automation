@@ -9,9 +9,7 @@ const Footer = ({ parks = false }: { parks?: boolean }) => {
     {
       icon: MessageCircle,
       label: "WhatsApp",
-      href: parks
-        ? contact.whatsapp
-        : `https://wa.me/34657506301?text=${encodeURIComponent("Hola, me interesan las soluciones de Acelerik")}`,
+      href: parks ? contact.whatsappBooking : contact.whatsapp,
       color: "hover:text-[#25D366]",
     },
     {

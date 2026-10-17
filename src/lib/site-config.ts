@@ -1,9 +1,14 @@
 // Public information. Configure the Formspree recipient in its dashboard.
 export const siteUrl = "https://www.acelerik.com";
+const whatsappNumber = "34657506301";
+const whatsappLink = (text: string) =>
+  `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
 export const contact = {
   email: "hola@acelerik.com",
-  phone: "+34 608 429 382",
-  whatsapp: `https://wa.me/34657506301?text=${encodeURIComponent("Hola, me interesa Acelerik Booking para mi parque")}`,
+  phone: "+34 657 506 301",
+  phoneHref: `tel:+${whatsappNumber}`,
+  whatsapp: whatsappLink("Hola, me interesan las soluciones de Acelerik"),
+  whatsappBooking: whatsappLink("Hola, me interesa Acelerik Booking para mi parque"),
   formEndpoint: "https://formspree.io/f/mbgdywwb",
 };
 
